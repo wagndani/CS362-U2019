@@ -132,9 +132,9 @@ int baronCase(int choice1, struct gameState *state, int handPos, int currentPlay
 
 int minionCase(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer);
 
-int ambassadorCase(int choice1, int choice2, struct gameState state, int handPos, int currentPlayer);
+int ambassadorCase(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer);
 
-int tributeCase(int currentPlayer, int nextPlayer, int tributeRevealedCards[]);
+int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer);
 
 int mineCase(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer);
 

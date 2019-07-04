@@ -653,7 +653,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   int currentPlayer = whoseTurn(state);
   int nextPlayer = currentPlayer + 1;
 
-  int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
   int drawntreasure=0;
   int cardDrawn;
@@ -860,7 +859,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 
     case tribute:
-        return tributeCase(state, currentPlayer, nextPlayer, tributeRevealedCards[]);
+        return tributeCase(state, currentPlayer, nextPlayer);
       
 
     case ambassador:
@@ -1123,7 +1122,7 @@ int baronCase(int choice1, struct gameState *state, int handPos, int currentPlay
         }
     }
     
-    discardCard(handPos, currentPLayer, state, 1);
+    discardCard(handPos, currentPlayer, state, 1);
 
     return 0;
 }
@@ -1141,6 +1140,7 @@ int minionCase(int choice1, int choice2, struct gameState *state, int handPos, i
 
     else if (choice2){                                                          //discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
         
+        int i = 0;
         for (i = 0; i < state->numPlayers; i++){
             
             if ((state->handCount[i] > 5 && i != currentPlayer) || (i == currentPlayer)){
@@ -1149,6 +1149,7 @@ int minionCase(int choice1, int choice2, struct gameState *state, int handPos, i
                     discardCard(1, i, state, 0);
                 }
 
+                int j = 0;
                 for (j = 0; j < 4; j++){
                     drawCard(j, state);
                 }
@@ -1166,6 +1167,7 @@ int ambassadorCase(int choice1, int choice2, struct gameState *state, int handPo
         return -1;
     }
 
+    int i = 0;
     for (i = 0; i < state->handCount[currentPlayer]; i++){
         
         if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1] && i != choice1){
@@ -1208,9 +1210,10 @@ int ambassadorCase(int choice1, int choice2, struct gameState *state, int handPo
     return 0;
 }
 
-int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer, int tributeRevealedCards[]){
+int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer){
         
     int validTributeReveals = 0;
+    int tributeRevealedCards[2] = {-1, -1};
     
     while(validTributeReveals < 2 || 
           validTributeReveals < (state->deckCount[nextPlayer] + state->discardCount[nextPlayer])){
@@ -1284,7 +1287,7 @@ int mineCase(int choice1, int choice2, struct gameState *state, int handPos, int
     
     int removeCard = state->hand[currentPlayer][choice1];  //store card we will trash
 
-    if ((removeCard < copper || sremoveCard > gold) ||
+    if ((removeCard < copper || removeCard > gold) ||
         (choice2 > treasure_map || choice2 < curse) ||
         ((getCost(removeCard) + 3) >= getCost(choice2))){
         return -1;
