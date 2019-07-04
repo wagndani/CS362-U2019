@@ -1,5 +1,5 @@
 called: gcc
-	/nfs/stak/users/wagndani/.netbeans/remote/flip1.engr.oregonstate.edu/desktop-2fmgmco-Windows-x86_64/C/Users/volfo/Documents/GitHub/CS362-U2019/projects/wagndani/dominion
+	/nfs/stak/users/wagndani/CS362/CS362-U2019/projects/wagndani/dominion
 	gcc
 	-c
 	rngs.c

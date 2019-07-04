@@ -1098,9 +1098,9 @@ int baronCase(int choice1, struct gameState *state, int handPos, int currentPlay
 
     state->numBuys++;                                                           //Increase buys by 1!
 
+    int estate_in_hand = 0; 
     if (choice1 > 0){                                                           //Boolean true or going to discard an estate
         int p = 0;                                                              //Iterator for hand!
-        int estate_in_hand = 0;                                                 //Flag for estate card present
 
         for(p = 0; p <= state->hand[currentPlayer][p]; p++){
             if (state->hand[currentPlayer][p] == estate){                       //Found an estate card!
@@ -1161,7 +1161,7 @@ int minionCase(int choice1, int choice2, struct gameState *state, int handPos, i
 
 int ambassadorCase(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer){
     
-    j = 0;		//used to check if player has enough cards to discard
+    int j = 0;                                                                  //used to check if player has enough cards to discard
 
     if ((choice2 > 2 || choice2 < 0) || (choice1 == handPos)){
         return -1;
@@ -1214,6 +1214,7 @@ int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer){
         
     int validTributeReveals = 0;
     int tributeRevealedCards[2] = {-1, -1};
+    int i = 0;
     
     while(validTributeReveals < 2 || 
           validTributeReveals < (state->deckCount[nextPlayer] + state->discardCount[nextPlayer])){
