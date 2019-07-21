@@ -4,6 +4,11 @@
     <df root="." name="0">
       <in>badTestDrawCard.c</in>
       <in>betterTestDrawCard.c</in>
+      <in>cardtest1.c</in>
+      <in>cardtest2.c</in>
+      <in>cardtest3.c</in>
+      <in>cardtest4.c</in>
+      <in>cardtest5.c</in>
       <in>dominion.c</in>
       <in>dominion.h</in>
       <in>dominion_helpers.h</in>
@@ -19,6 +24,12 @@
       <in>testDrawCard.c</in>
       <in>testInit.c</in>
       <in>testShuffle.c</in>
+      <in>unittest1.c</in>
+      <in>unittest2.c</in>
+      <in>unittest3.c</in>
+      <in>unittest4.c</in>
+      <in>unittest5.c</in>
+      <in>unittestTemplate.c</in>
     </df>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
