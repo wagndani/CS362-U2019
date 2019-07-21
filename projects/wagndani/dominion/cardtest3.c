@@ -1,7 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * CS362 Software Engineering II
+ * Summer 2019
+ * 
+ * Daniel S Wagner 
+ * wagndani@oregonstate.edu
+ * 
+ * Assignment 3
+ * 
+ * cardtest3.c
+ * Testing the endTurn function
  */
 
 // STANDARD C LIBRAIRIES
@@ -30,6 +37,7 @@ int main(){
     baseGame.numPlayers = 2;
     baseGame.handCount[checkPlayer] = 5;
     baseGame.deckCount[checkPlayer + 1] = 5;
+    baseGame.discardCount[checkPlayer] = 0;
     checkDiscard.discardCount[checkPlayer] = 5;
     
     int i = 0;

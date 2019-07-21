@@ -1,7 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * CS362 Software Engineering II
+ * Summer 2019
+ * 
+ * Daniel S Wagner 
+ * wagndani@oregonstate.edu
+ * 
+ * Assignment 3
+ * 
+ * cardtest5.c
+ * Testing the drawCard function
  */
 
 // STANDARD C LIBRAIRIES
@@ -63,8 +70,9 @@ int main(){
     
     printf("\nTesting single card in deck pile\n"
     "Single card in deck is province.  All in hand are estate\n");
-    baseGame.discardCount[checkPlayer] = 1;
-    baseGame.discard[checkPlayer][baseGame.discardCount[checkPlayer] - 1] = province;
+    baseGame.deckCount[checkPlayer] = 1;
+    baseGame.discardCount[checkPlayer] = 0;
+    baseGame.deck[checkPlayer][baseGame.deckCount[checkPlayer] - 1] = province;
     
     memcpy(&baseGame, &testGame, sizeof(struct gameState));
     drawCard(0, &baseGame);

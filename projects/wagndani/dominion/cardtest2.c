@@ -1,9 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * CS362 Software Engineering II
+ * Summer 2019
+ * 
+ * Daniel S Wagner 
+ * wagndani@oregonstate.edu
+ * 
+ * Assignment 3
+ * 
+ * cardtest2.c
+ * Testing the shuffle function
  */
-
 // STANDARD C LIBRAIRIES
 #include <string.h>
 #include <stdio.h>

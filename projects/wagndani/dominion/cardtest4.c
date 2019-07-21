@@ -1,7 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * CS362 Software Engineering II
+ * Summer 2019
+ * 
+ * Daniel S Wagner 
+ * wagndani@oregonstate.edu
+ * 
+ * Assignment 3
+ * 
+ * cardtest4.c
+ * Testing the getWinners function
  */
 
 // STANDARD C LIBRAIRIES
@@ -58,7 +65,7 @@ int main(){
     nb_assert(players[0], 0);
     
     printf("Testing player position greater than number of players.  Should be 0\n");
-    nb_assert(players[8], 0);
+    nb_assert(players[3], 0);
     
     printf("\nTesting array populated with all '99'.  Position 1 should be 1\n");
     getWinners(playersAllHigh, &baseGame);
@@ -67,12 +74,9 @@ int main(){
     printf("Testing array populated with all '99'.  Position 0 Should be 0\n");
     nb_assert(playersAllHigh[0], 0);
     
-    printf("Testing array populated with all '99'.  Position 8 Should be 0\n");
-    nb_assert(playersAllHigh[8], 0);
+    printf("Testing array populated with all '99'.  Position 3 Should be 0\n");
+    nb_assert(playersAllHigh[3], 0);
     
-    
-    printf("Testing array populated with all '99'.  Position 8 Should be 0\n");
-    nb_assert(playersAllHigh[8], 0);
     
     printf("\nTesting tie game when player in position i has less turns.\n");
     

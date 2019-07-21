@@ -1,7 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * CS362 Software Engineering II
+ * Summer 2019
+ * 
+ * Daniel S Wagner 
+ * wagndani@oregonstate.edu
+ * 
+ * Assignment 3
+ * 
+ * unittest4.c
+ * Testing the refactored tribute case function
  */
 
 // STANDARD C LIBRAIRIES
@@ -15,7 +22,7 @@
 #include "dominion_helpers.h"
 #include "rngs.h"
 
-void nb_assert();
+void nb_assert(int, int);
 
 int main(){
     
