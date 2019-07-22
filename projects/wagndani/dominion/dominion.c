@@ -128,7 +128,6 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 	      state->supplyCount[i] = -1;
 	    }
 	}
-
     }
 
   ////////////////////////
@@ -1215,9 +1214,15 @@ int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer){
     int validTributeReveals = 0;
     int tributeRevealedCards[2] = {-1, -1};
     int i = 0;
+    int cardsToReveal = 2;
     
-    while(validTributeReveals < 2 || 
-          validTributeReveals < (state->deckCount[nextPlayer] + state->discardCount[nextPlayer])){
+    int np_totalCardCount = state->deckCount[nextPlayer] + state->discardCount[nextPlayer];
+    
+    if(np_totalCardCount < cardsToReveal){
+        cardsToReveal = np_totalCardCount;
+    }
+
+    while(validTributeReveals < cardsToReveal){
         
         // If nextPlayer has no cards in the deck, 
         if (state->deckCount[nextPlayer] == 0){
@@ -1251,7 +1256,6 @@ int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer){
         validTributeReveals++;
     }
 
-
     if ((validTributeReveals == 2) && (tributeRevealedCards[0] == tributeRevealedCards[1])){    //If we have a duplicate card, just drop one
         state->playedCards[state->playedCardCount] = tributeRevealedCards[1];
         state->playedCardCount++;
@@ -1259,8 +1263,7 @@ int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer){
         validTributeReveals--;
     }
 
-    for (i = 0; i < validTributeReveals; i ++){
-        
+    for (i = 0; i < validTributeReveals; i++){
         if (tributeRevealedCards[i] == copper && 
               tributeRevealedCards[i] == silver &&  
               tributeRevealedCards[i] == gold){ //Treasure cards
