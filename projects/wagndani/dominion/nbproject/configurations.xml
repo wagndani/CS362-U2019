@@ -7,6 +7,9 @@
       <in>cardtest3.c</in>
       <in>cardtest4.c</in>
       <in>cardtest5.c</in>
+      <in>randomtestcard1.c</in>
+      <in>randomtestcard2.c</in>
+      <in>randomtestcard3.c</in>
       <in>rngs.c</in>
       <in>unittest1.c</in>
       <in>unittest2.c</in>
@@ -61,6 +64,12 @@
       <item path="cardtest4.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="cardtest5.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="randomtestcard1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="randomtestcard2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="randomtestcard3.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="rngs.c" ex="false" tool="0" flavor2="3">
         <cTool flags="0">

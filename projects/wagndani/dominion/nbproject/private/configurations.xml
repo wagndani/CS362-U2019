@@ -16,6 +16,9 @@
       <in>interface.h</in>
       <in>playdom.c</in>
       <in>player.c</in>
+      <in>randomtestcard1.c</in>
+      <in>randomtestcard2.c</in>
+      <in>randomtestcard3.c</in>
       <in>rngs.c</in>
       <in>rngs.h</in>
       <in>rt.c</in>

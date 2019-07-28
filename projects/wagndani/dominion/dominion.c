@@ -986,7 +986,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag)
 {
-
   //if card is not trashed, added to Played pile
   if (trashFlag < 1)
     {
@@ -1101,7 +1100,7 @@ int baronCase(int choice1, struct gameState *state, int handPos, int currentPlay
     if (choice1 > 0){                                                           //Boolean true or going to discard an estate
         int p = 0;                                                              //Iterator for hand!
 
-        for(p = 0; p <= state->hand[currentPlayer][p]; p++){
+        for(p = 0; p < state->handCount[currentPlayer]; p++){
             if (state->hand[currentPlayer][p] == estate){                       //Found an estate card!
                 state->coins += 4;                                              //Add 4 coins to the amount of coins
                 discardCard(p, currentPlayer, state, 0);        
@@ -1264,16 +1263,16 @@ int tributeCase(struct gameState *state, int currentPlayer, int nextPlayer){
     }
 
     for (i = 0; i < validTributeReveals; i++){
-        if (tributeRevealedCards[i] == copper && 
-              tributeRevealedCards[i] == silver &&  
+        if (tributeRevealedCards[i] == copper || 
+              tributeRevealedCards[i] == silver ||  
               tributeRevealedCards[i] == gold){ //Treasure cards
             state->coins += 2;
         }
 
-        else if (tributeRevealedCards[i] == estate && 
-                   tributeRevealedCards[i] == duchy &&  
-                   tributeRevealedCards[i] == province &&  
-                   tributeRevealedCards[i] == gardens &&  
+        else if (tributeRevealedCards[i] == estate || 
+                   tributeRevealedCards[i] == duchy ||  
+                   tributeRevealedCards[i] == province ||  
+                   tributeRevealedCards[i] == gardens ||  
                    tributeRevealedCards[i] == great_hall){      //Victory Card Found
             drawCard(currentPlayer, state);
             drawCard(currentPlayer, state);
