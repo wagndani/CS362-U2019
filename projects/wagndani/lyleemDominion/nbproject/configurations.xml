@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <in>cardtest1.c</in>
+      <in>cardtest2.c</in>
+      <in>cardtest3.c</in>
+      <in>cardtest4.c</in>
+      <in>cardtest5.c</in>
+      <in>rngs.c</in>
+      <in>unittest1.c</in>
+      <in>unittest2.c</in>
+      <in>unittest3.c</in>
+      <in>unittest4.c</in>
+      <in>unittest5.c</in>
+      <in>unittestTemplate.c</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-g -fpic -std=c99"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir></buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="cardtest1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cardtest2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cardtest3.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cardtest4.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cardtest5.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="rngs.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="unittest1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="unittest2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="unittest3.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="unittest4.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="unittest5.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="unittestTemplate.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
