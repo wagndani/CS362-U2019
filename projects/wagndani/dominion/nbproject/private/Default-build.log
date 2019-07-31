@@ -1,1 +1,0 @@
-gcc -c rngs.c -g  -Wall -fpic -coverage -lm -std=c99
