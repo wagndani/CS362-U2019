@@ -52,7 +52,7 @@ int main(){
     printf("\nTESTING TRIBUTE CASE\n");
     
     printf("/nTesting two action cards revealed by next player that are identical yields +2 actions\n");
-    tributeCase(&testGame, checkPlayer, nextPlayer);
+    executeTributeCard(&testGame, checkPlayer);
     nb_assert(testGame.numActions, baseGame.numActions +2);
     
     printf("\nTesting two cards were added to nextPlayers DiscardPile\n");
@@ -72,7 +72,7 @@ int main(){
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
     
     printf("\nTesting single action cards revealed by next player yields +2 actions\n");
-    tributeCase(&testGame, checkPlayer, nextPlayer);
+    executeTributeCard(&testGame, checkPlayer);
     nb_assert(testGame.numActions, baseGame.numActions +2);
     
     printf("\nTesting single card was added to nextPlayers Discard Pile\n");
@@ -95,7 +95,7 @@ int main(){
     }
 
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
-   tributeCase(&testGame, checkPlayer, nextPlayer);
+   executeTributeCard(&testGame, checkPlayer);
    
    printf("\nTesting single action cards revealed by next player yields +2 actions\n");
     nb_assert(testGame.numActions, baseGame.numActions +2);
@@ -115,7 +115,7 @@ int main(){
     baseGame.deck[nextPlayer][baseGame.deckCount[nextPlayer] - 2] = copper;
      memcpy(&testGame, &baseGame, sizeof(struct gameState));
     
-    tributeCase(&testGame, checkPlayer, nextPlayer);
+    executeTributeCard(&testGame, checkPlayer);
     nb_assert(testGame.coins, baseGame.coins +2);
     
     
@@ -127,7 +127,7 @@ int main(){
     baseGame.deck[nextPlayer][baseGame.deckCount[nextPlayer] - 2] = gold;
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
     
-    tributeCase(&testGame, checkPlayer, nextPlayer);
+    executeTributeCard(&testGame, checkPlayer);
     nb_assert(testGame.coins, baseGame.coins +4);
     printf("\nTesting if 'if' statements did not pick up treasure, or victory, defaulted to action by checking numAction variable\n");
     nb_assert(testGame.numActions, baseGame.numActions);
@@ -140,7 +140,7 @@ int main(){
     baseGame.deck[nextPlayer][baseGame.deckCount[nextPlayer] - 2] = province;
      memcpy(&testGame, &baseGame, sizeof(struct gameState));
     
-    tributeCase(&testGame, checkPlayer, nextPlayer);
+    executeTributeCard(&testGame, checkPlayer);
     nb_assert(testGame.deckCount[nextPlayer], baseGame.deckCount[nextPlayer] +4);
     
     printf("\nTesting different action cards revealed by next player yield +4 actions\n");
@@ -151,7 +151,7 @@ int main(){
     baseGame.deck[nextPlayer][baseGame.deckCount[nextPlayer] - 2] = steward;
      memcpy(&testGame, &baseGame, sizeof(struct gameState));
     
-    tributeCase(&testGame, checkPlayer, nextPlayer);
+    executeTributeCard(&testGame, checkPlayer);
     nb_assert(testGame.numActions, baseGame.numActions + 4);
     
     return 0;

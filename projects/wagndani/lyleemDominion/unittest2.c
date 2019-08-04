@@ -49,7 +49,7 @@ int main(){
     printf("\nTESTING MINION CASE\n");
     choice1 = 1;
     choice2 = 0;
-    minionCase(choice1, choice2, &testGame, handPos, checkPlayer);
+    executeMinionCard(choice1, choice2, &testGame, handPos, checkPlayer);
     printf("\nTesting action count incrementation\n");
     nb_assert(testGame.numActions, baseGame.numActions +1);
     printf("\nChecking card discarded properly by checking discardCount\n");
@@ -64,14 +64,14 @@ int main(){
     printf("Verifying Discard of current player\n");
     // Reset testGame to match baseGame
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
-    minionCase(choice1, choice2, &testGame, handPos, checkPlayer);
+    executeMinionCard(choice1, choice2, &testGame, handPos, checkPlayer);
     nb_assert(testGame.discardCount[checkPlayer], baseGame.discardCount[checkPlayer] + baseGame.handCount[checkPlayer]);
     
     printf("\nTesting if other player only has 1 card in hand.  Player shouldn't discard or draw.  HandCount should not change.\n");
     // Reset testGame to match baseGame
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
     testGame.handCount[checkPlayer + 1] = 1;
-    minionCase(choice1, choice2, &testGame, handPos, checkPlayer);
+    executeMinionCard(choice1, choice2, &testGame, handPos, checkPlayer);
     nb_assert(testGame.handCount[checkPlayer +1 ], 1);
     
     printf("\nTesting that other player did not discard cards by checking discard pile count\n");
@@ -86,7 +86,7 @@ int main(){
     }
     
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
-    minionCase(choice1, choice2, &testGame, handPos, checkPlayer);
+    executeMinionCard(choice1, choice2, &testGame, handPos, checkPlayer);
     nb_assert(testGame.handCount[checkPlayer + 1], 4);
     printf("Checking if discardCount of other player is equivalent to having discarded current hand\n");
     nb_assert(testGame.discardCount[checkPlayer +1], baseGame.discardCount[checkPlayer +1] + baseGame.handCount[checkPlayer +1]); 
@@ -96,7 +96,7 @@ int main(){
     baseGame.handCount[checkPlayer +1] = 6;
     
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
-    minionCase(choice1, choice2, &testGame, handPos, checkPlayer);
+    executeMinionCard(choice1, choice2, &testGame, handPos, checkPlayer);
     nb_assert(testGame.handCount[checkPlayer + 1], 4);
     printf("Checking if discardCount of other player is equivalent to having discarded current hand\n");
     nb_assert(testGame.discardCount[checkPlayer +1], baseGame.discardCount[checkPlayer +1] + baseGame.handCount[checkPlayer +1]); 

@@ -678,7 +678,8 @@ int executeMineCard(int choice1, int choice2, struct gameState *state, int handP
 
 	//***Refactor: Combine if statements with OR operator
 	if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold 
-		|| choice2 > treasure_map || choice2 < curse || (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2))
+		|| choice2 > treasure_map || choice2 < curse ||
+                (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2))
 	{
 		return -1;
 	}

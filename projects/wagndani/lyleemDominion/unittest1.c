@@ -53,7 +53,8 @@ int main(){
     printf("\nTesting With Estate Card in Hand\n");
     choice1 = 1;
     printf("Testing coin return with choice1 variable set to %d.\n", choice1);
-    baronCase(choice1, &testGame, handPos, checkPlayer);
+    
+    executeBaronCard(choice1, &testGame, handPos, checkPlayer);
     nb_assert(testGame.coins, baseGame.coins + 4);
     //Assuming discardCard function does its job, did we make the correct inputs?
     printf("Testing # of discarded cards in players discard pile\n");
@@ -67,7 +68,7 @@ int main(){
     // Reset test case to base case for new test
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("Testing coin return with choice1 variable set to %d.\n", choice1);
-    baronCase(choice1, &testGame, handPos, checkPlayer);
+    executeBaronCard(choice1, &testGame, handPos, checkPlayer);
     nb_assert(testGame.coins, baseGame.coins);
     printf("Testing # of discarded cards in players discard pile\n");
     nb_assert(testGame.discardCount[checkPlayer], baseGame.discardCount[checkPlayer] + 2);
@@ -92,7 +93,7 @@ int main(){
     choice1 = 1;
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("Testing coin return with choice1 variable set to %d.\n", choice1);
-    baronCase(choice1, &testGame, handPos, checkPlayer);
+    executeBaronCard(choice1, &testGame, handPos, checkPlayer);
     nb_assert(testGame.coins, baseGame.coins);
     //Assuming discardCard function does its job, did we make the correct inputs?
     printf("Testing # of discarded cards in players discard pile\n");
@@ -106,7 +107,7 @@ int main(){
     choice1 = 0;
     memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("Testing coin return with choice1 variable set to %d.\n", choice1);
-    baronCase(choice1, &testGame, handPos, checkPlayer);
+    executeBaronCard(choice1, &testGame, handPos, checkPlayer);
     nb_assert(testGame.coins, baseGame.coins);
     printf("Testing # of discarded cards in players discard pile\n");
     nb_assert(testGame.discardCount[checkPlayer], baseGame.discardCount[checkPlayer] + 2);

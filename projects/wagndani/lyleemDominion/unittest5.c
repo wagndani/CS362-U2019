@@ -50,27 +50,32 @@ int main(){
     printf("\nTESTING MINE CASE\n");
     
     printf("\nTesting invalid choice1 card less than copper\n");
-    nb_assert(mineCase(choice1, gold, &testGame, handPos, checkPlayer), -1);
+    nb_assert(executeMineCard(choice1, gold, &testGame, handPos, checkPlayer), -1);
     
     baseGame.hand[checkPlayer][choice1] = minion;
+    memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("\nTesting invalid choice1 card greater than gold \n");
-    nb_assert(mineCase(choice1, gold, &testGame, handPos, checkPlayer), -1);
+    nb_assert(executeMineCard(choice1, gold, &testGame, handPos, checkPlayer), -1);
     
     baseGame.hand[checkPlayer][choice1] = copper;
+    memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("\nTesting valid choice1 card but more than 3 coins less than gold \n");
-    nb_assert(mineCase(choice1, gold, &testGame, handPos, checkPlayer), -1);
+    nb_assert(executeMineCard(choice1, gold, &testGame, handPos, checkPlayer), -1);
     
     baseGame.hand[checkPlayer][choice1] = -1;
+    memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("\nTesting invalid choice1 card, less than curse \n");
-    nb_assert(mineCase(choice1, gold, &testGame, handPos, checkPlayer), -1);
+    nb_assert(executeMineCard(choice1, gold, &testGame, handPos, checkPlayer), -1);
     
     baseGame.hand[checkPlayer][choice1] = 30;
+    memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("\nTesting invalid choice1 card, greater than treasure_map \n");
-    nb_assert(mineCase(choice1, gold, &testGame, handPos, checkPlayer), -1);
+    nb_assert(executeMineCard(choice1, gold, &testGame, handPos, checkPlayer), -1);
     
     baseGame.hand[checkPlayer][choice1] = copper;
+    memcpy(&testGame, &baseGame, sizeof(struct gameState));
     printf("\nTesting valid copper for silver trade return result");
-    nb_assert(mineCase(choice1, silver, &testGame, handPos, checkPlayer), 0);
+    nb_assert(executeMineCard(choice1, silver, &testGame, handPos, checkPlayer), 0);
     
     printf("\nTesting gainCard sent to hand\n");
     nb_assert(testGame.hand[checkPlayer][testGame.handCount[checkPlayer] -1], silver);
