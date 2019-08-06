@@ -1,0 +1,2 @@
+true:http://example.com/serach?address=Main%20Avenue
+false:htt//example.com/serach?address=Main%20Avenue
