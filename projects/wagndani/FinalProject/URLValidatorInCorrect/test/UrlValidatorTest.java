@@ -81,7 +81,7 @@ protected void setUp() {
     */
    public void testIsValid(Object[] testObjects, long options) {
       UrlValidator urlVal = new UrlValidator(null, null, options);
-      assertTrue(urlVal.isValid("http://www.google.com"));
+      assertTrue(urlVal.isValid("http;//www.google.com"));
       assertTrue(urlVal.isValid("http://www.google.com/"));
       int statusPerLine = 60;
       int printed = 0;
