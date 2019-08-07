@@ -1,4 +1,4 @@
-package test;
+package unitTest;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ProjectB {
+public class UnitTest {
 
 	@Before
 	public void setUp() throws Exception {
