@@ -1,11 +1,9 @@
-package test;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import urlValidator.UrlValidator;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
