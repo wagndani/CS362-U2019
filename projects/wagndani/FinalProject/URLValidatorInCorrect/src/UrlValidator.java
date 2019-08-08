@@ -130,7 +130,7 @@ public class UrlValidator implements Serializable {
     /**
      * Protocol scheme (e.g. http, ftp, https).
      */
-    private static final String SCHEME_REGEX = "^\\p{Alpha}[\\p{Alnum}\\+\\-\\.]*";
+    private static final String SCHEME_REGEX = "^\\p{Alnum}[\\p{Alnum}\\+\\-\\.]*"; //"^\\p{Alpha}[\\p{Alnum}\\+\\-\\.]*";
     private static final Pattern SCHEME_PATTERN = Pattern.compile(SCHEME_REGEX);
 
     // Drop numeric, and  "+-." for now
@@ -417,7 +417,7 @@ public class UrlValidator implements Serializable {
             if (port != null && port.length() > 0) {
                 try {
                     int iPort = Integer.parseInt(port);
-                    if (iPort < 0 || iPort > MAX_UNSIGNED_16_BIT_INT) {
+                    if (iPort < 0) {  //if (iPort < 0 || iPort > MAX_UNSIGNED_16_BIT_INT) {
                         return false;
                     }
                 } catch (NumberFormatException nfe) {
@@ -452,7 +452,7 @@ public class UrlValidator implements Serializable {
             URI uri = new URI(null,null,path,null);
             String norm = uri.normalize().getPath();
             if (norm.startsWith("/../") // Trying to go via the parent dir 
-             || norm.equals("/..")) {   // Trying to go to the parent dir
+                && norm.equals("/..")) {	//|| norm.equals("/..")) {   // Trying to go to the parent dir
                 return false;
             }
         } catch (URISyntaxException e) {
