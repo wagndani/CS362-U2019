@@ -2,12 +2,18 @@
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
+
 import static org.junit.Assert.*;
 import java.util.Random;
 
 public class randomTest {
 
+	@Rule
+    public ErrorCollector collector = new ErrorCollector();
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -35,7 +41,13 @@ public class randomTest {
 			}
 			url = urlBuilder.toString();
 			urlBuilder.setLength(0);
-			assertEquals(validator.isValid(url), valid);
+			try {
+				assertEquals(validator.isValid(url), valid);
+		    } catch (Throwable t) {
+		        collector.addError(t);
+		        System.out.print("\nError: " + url + " (Expected: " + valid + " , Actual: " + validator.isValid(url) + ")\n");
+		        continue;
+		    }
 			valid = true;
 		}	
 	}
