@@ -29,7 +29,6 @@ public class ProjectB {
 			
 	}
 	
-	
 	@Test
 	public void testIsValid() throws IOException {
 		UrlValidator validator = new UrlValidator();

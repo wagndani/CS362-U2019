@@ -1,4 +1,6 @@
+false:www.no_scheme.com
 false:3ttp://freshtomatos.com/827+Market&Street
+false:https://www.instagram.com/../B0o1_EKIVD7/
 true:http://example.com/serach?address=Main%20Avenue
 false:htt/example.com/serach?address=Main%20Avenue
 false:#/?#://otherwiseokay.com
@@ -6,7 +8,6 @@ false:http://foo.bar.com/q=no white space allowed
 false:http://.www.foo.bar/com
 true:https://www.foobar.com/q=free_rafter_samples
 true:ftp://255.255.145.155
-false:www.no_scheme.com
 true:http://freshtomatos.com/827+Market&Street
 false:://www.badbroccolli.com/path
 false:https://badport.edu:66636
@@ -39,7 +40,6 @@ true:https://www.instagram.com/p/B0o1_EKIVD7/
 false:https://www.instagram.com//B0o1_EKIVD7/
 false:https://.instagram.com/p/B0o1_EKIVD7/
 false:://www.instagram.com/p/B0o1_EKIVD7/
-false:https://www.instagram.com/../B0o1_EKIVD7/
 false:https://www.instagram.com/. ./B0o1_EKIVD7/
 false:https://.www.instagram.com/B0o1_EKIVD7/
 true:https://www.linkedin.com/m/login/
